@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'product'
+    'product',
 
+    'payme',
 ]
 
 MIDDLEWARE = [
@@ -124,10 +125,20 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/img/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/')
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PAYME: dict = {
+    'PAYME_ID': 'payme-id',
+    'PAYME_KEY': 'payme-key',
+    'PAYME_URL': 'payme-checkout-url',
+    'PAYME_CALL_BACK_URL': 'your-callback-url', # merchant api callback url
+    'PAYME_MIN_AMOUNT': 'payme-min-amount', # integer field
+    'PAYME_ACCOUNT': 'order-id',
+}
